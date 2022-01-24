@@ -91,3 +91,19 @@ console.log("Hours worked by employee today = "+ getWorkHours());
      console.log("Total working hours: "+ tot_wrkg_hrs);
      console.log("Wages of the month: "+ wages_month);
 }
+
+/**
+ * UC 6: Store Daily and Total wage
+ */
+{
+    let daily_wage = 0;
+    let totl_wage = 0;
+    const daily_wage_arr = [];
+    for(let i=0;i<WORKING_DAYS_IN_MONTH;i++){
+        daily_wage = PER_HR_WAGE* getWorkHours();
+        daily_wage_arr[daily_wage_arr.length] = daily_wage;
+        totl_wage += daily_wage;
+    }
+    console.log("Total wage of the employee = "+ totl_wage);
+    console.log("Daily wages of the employee are: \n"+ daily_wage_arr)
+}
