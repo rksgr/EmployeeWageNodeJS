@@ -7,6 +7,7 @@ const PART_TIME_WORK = 4;
 const FULL_TIME_WORK = 8;
 const PER_HR_WAGE = 20;
 const WORKING_DAYS_IN_MONTH = 20;
+const MAX_WRKG_HRS_MONTH = 160;
 
 /**
  * UC 1: Check if employee is present or not
@@ -72,4 +73,21 @@ console.log("Hours worked by employee today = "+ getWorkHours());
         days++;
     }
     console.log("The wage of the employee in this month = "+ wages_of_month);
+}
+/**
+ * UC 5: Calculate wages till a condition of total working hours of 160 or max days of 20 is reached for a month
+ */
+ {
+     //MAX_WRKG_HRS_MONTH
+     let tot_wrkg_hrs = 0;
+     let days_wrkd = 0;
+     let wages_month = 0;
+     while((tot_wrkg_hrs<MAX_WRKG_HRS_MONTH) && (days_wrkd < WORKING_DAYS_IN_MONTH)){
+         tot_wrkg_hrs += getWorkHours();
+         days_wrkd++;
+     }
+     wages_month += tot_wrkg_hrs*PER_HR_WAGE;
+     console.log("Days worked: "+ days_wrkd);
+     console.log("Total working hours: "+ tot_wrkg_hrs);
+     console.log("Wages of the month: "+ wages_month);
 }
