@@ -107,3 +107,56 @@ console.log("Hours worked by employee today = "+ getWorkHours());
     console.log("Total wage of the employee = "+ totl_wage);
     console.log("Daily wages of the employee are: \n"+ daily_wage_arr)
 }
+/**
+ * UC 7: Perform helper functions using daily wage array
+ */
+{// calculate total wage using Array forEach or reduce method
+    const daily_wage_arr = [];
+    for(let i=0;i<WORKING_DAYS_IN_MONTH;i++){
+        let daily_wage = PER_HR_WAGE*getWorkHours();
+        daily_wage_arr[daily_wage_arr.length] = daily_wage
+    }
+    console.log("Daily wage array: "+ daily_wage_arr);
+    let sum_wages = 0;
+    daily_wage_arr.forEach(func);
+    function func(daily_wage){
+        sum_wages += daily_wage;
+    }
+    console.log("Sum of wages = "+sum_wages);
+
+// Show the day along with daily wage using array map helper function
+let i =0;
+daily_wage_arr.forEach(myFunc);
+function myFunc(daily_wage){
+    i++;
+    console.log("Day "+i,daily_wage);
+}
+
+// Show days when full time wage of 160 were earned using filter function
+let j = 0;
+daily_wage_arr.filter(myFunc1);
+function myFunc1(daily_wage){
+    j++;
+    if(daily_wage==160){
+        return console.log("Days when wage of 160 earned: "+j);
+    }
+}
+//Find the first occurrence when Full Time Wage was earned using find function
+let k = 0;
+const FULL_TIME_WAGE = 160;
+let first_occur = 1 + daily_wage_arr.findIndex(function (element) {
+    return element == FULL_TIME_WAGE;
+});
+
+console.log("The full time wage was first earned on day " + first_occur);
+
+// Find number of days the employee worked
+
+let days = 0;
+for(let i=0;i<daily_wage_arr.length;i++){
+    if(daily_wage_arr[i]>0){
+        days++;
+    }
+}
+console.log("Number of days worked: "+ days);
+}
