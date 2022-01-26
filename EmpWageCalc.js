@@ -160,3 +160,23 @@ for(let i=0;i<daily_wage_arr.length;i++){
 }
 console.log("Number of days worked: "+ days);
 }
+
+/**
+ * UC8: Store day and daily wage along with total wage
+ */
+{
+    let day = 0;
+    let DAILY_WAGE_MAP = new Map();
+    let total_wage = 0;
+    
+    // compute wages for each day and insert day and wage into the map
+    for(let i=1;i<=WORKING_DAYS_IN_MONTH;i++){
+        let daily_wage = getWorkHours()*PER_HR_WAGE;
+        if(daily_wage>0){day++;}
+        total_wage += daily_wage;
+        DAILY_WAGE_MAP.set(i,daily_wage);
+    }
+    DAILY_WAGE_MAP.set("Total Days ",day);
+    DAILY_WAGE_MAP.set("Total Wages ",total_wage);
+    console.log(DAILY_WAGE_MAP);  
+}
